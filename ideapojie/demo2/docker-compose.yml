@@ -1,0 +1,51 @@
+#services:
+#  #  docker配置文件
+#  db:
+#    container_name: postagres
+#    image: postgres
+#    environment:
+#      POSTGRES_USER: root
+#      POSTGRES_PASSWORD: 123456
+#      PGDATA: /data/postgres
+#   volumes:
+#     - db:/data/postgres
+#   ports:
+#     - "5432:5432"
+#   networks:
+#     - db
+#   restart: unless-stopped
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - db
+    restart: unless-stopped
+
+#    镜像部署
+#todo 镜像没有上传成功格式如下内容没填
+# :
+#   container_name:
+#   image:
+#   environment:
+#     SPRING_DATASOURCE_URL:jdbc:postgresql://db:5432/customer #数据连接
+#   ports：
+#     - "8080":"8080"
+#   networks:
+#     - db:
+#   depends_on:
+#     -db
+#   restart:uless-stopped
+networks:
+  db:
+    driver: bridge
+volumes:
+  db:

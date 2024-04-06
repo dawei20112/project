@@ -1,0 +1,13 @@
+<UserProfile
+        name={"jamila"}
+        age={22}
+        gender={"women"}>
+        <p>hello</p>
+      </UserProfile>
+      <UserProfile
+        name={"alex"}
+        age={12}
+        gender={"men"}>
+        <h1>ciao</h1>
+      </UserProfile>
+组件加载 数据覆盖加载

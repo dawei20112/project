@@ -1,0 +1,45 @@
+server:
+  port: 8090
+  #  设置是否返回错误信息指定的非自带
+  error:
+    include-message: always
+#  限制的是服务进入的端口
+
+
+cors:
+  allowed-origins : "*"
+  allowed-methods : "*"
+  allowed-headers : "*"
+  exposed-headers : "*"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/database
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    #      ddl-auto: create-drop 项目启动创建数据库项目结束数据库清除
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  main:
+    web-application-type: servlet
+    #    show-sql: false
+
+#      创建一个新的数据库
+#  jpa:
+#    hibernate:
+#      ddl-auto: update  保留数据并且启动时更新数据库
+#    最后限制的是服务器的启动运行方式 上述是默认形式
